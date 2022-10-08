@@ -1,3 +1,4 @@
+from tkinter import *
 from tkinter import ttk
 
 from PIL import Image, ImageTk
@@ -12,7 +13,10 @@ from emotion_video_classifier import emotion_testing
 import tkinter as tk
 from tkinter import messagebox
 
-client_credentials_manager = SpotifyClientCredentials(client_id=config.cid, client_secret=config.secret)
+user_client_id = "c068519604dc43b2ade24a94d4e90ea6"
+user_client_secret = "9c421caa890d49d6b73e8fd67a6103ae"
+# client_credentials_manager = SpotifyClientCredentials(client_id=config.cid, client_secret=config.secret)
+client_credentials_manager = SpotifyClientCredentials(client_id=user_client_id, client_secret=user_client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 root = tk.Tk()
@@ -21,7 +25,7 @@ root.geometry("600x400")
 root.configure(bg='black')
 name1 = tk.StringVar()
 
-photo = PhotoImage(file="musicback.jpg")
+photo = PhotoImage(file="images/musicback.jpg")
 l = tk.Label(root, image=photo)
 l.image = photo  # just keeping a reference
 l.grid()
@@ -253,7 +257,7 @@ quitWindow = tk.Button(window, text="Quit",
                        font=('times', 15, ' bold '))
 quitWindow.place(x=1100, y=500)
 
-image1 = Image.open("musicimg (1).jpg")
+image1 = Image.open("images/musicimg (1).jpg")
 test = ImageTk.PhotoImage(image1)
 
 label1 = tk.Label(image=test)
